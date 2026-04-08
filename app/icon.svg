@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="orb" x1="10" y1="8" x2="54" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9AE8FF"/>
+      <stop offset="0.52" stop-color="#4CC9F0"/>
+      <stop offset="1" stop-color="#8B4DFF"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="36" y1="6" x2="56" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6FBFF"/>
+      <stop offset="1" stop-color="#A07BFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#030305"/>
+  <circle cx="28" cy="36" r="16" stroke="url(#orb)" stroke-width="3"/>
+  <path d="M12 36H44" stroke="url(#orb)" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+  <path d="M28 20C34 25 34 47 28 52" stroke="url(#orb)" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+  <path d="M28 20C22 25 22 47 28 52" stroke="url(#orb)" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+  <path d="M28 24C19 24 14 30 12 36C14 42 19 48 28 48C37 48 42 42 44 36C42 30 37 24 28 24Z" stroke="url(#orb)" stroke-width="2" opacity=".45"/>
+  <path d="M46 8C47.3 15.7 52.3 20.7 60 22C52.3 23.3 47.3 28.3 46 36C44.7 28.3 39.7 23.3 32 22C39.7 20.7 44.7 15.7 46 8Z" fill="url(#spark)"/>
+</svg>

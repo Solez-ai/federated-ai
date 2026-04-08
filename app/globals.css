@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #030305;
+  --color-foreground: #F8F9FA;
+  --color-primary: #1EA1F2;
+  --color-primary-glow: rgba(30, 161, 242, 0.5);
+  --color-secondary: #8B4DFF;
+  --color-secondary-glow: rgba(139, 77, 255, 0.5);
+  --color-accent: #00E676;
+  --color-danger: #FF3366;
+  --color-surface: rgba(255, 255, 255, 0.015);
+  --color-surface-border: rgba(255, 255, 255, 0.05);
+  --font-orbitron: var(--font-orbitron);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), -apple-system, sans-serif;
+  overflow-x: hidden;
+  background-image: radial-gradient(circle at 50% -20%, rgba(30, 161, 242, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 100% 120%, rgba(139, 77, 255, 0.08) 0%, transparent 60%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #030305;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 161, 242, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 161, 242, 0.6);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  z-index: 9998;
+  opacity: 0.8;
+}
+
+@layer utilities {
+  .glass-panel {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(24px) saturate(120%);
+    -webkit-backdrop-filter: blur(24px) saturate(120%);
+    position: relative;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    border: none;
+  }
+
+  .glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .text-glow-primary {
+    text-shadow: 0 0 20px var(--color-primary-glow), 0 0 40px var(--color-primary-glow);
+  }
+  .text-glow-secondary {
+    text-shadow: 0 0 20px var(--color-secondary-glow), 0 0 40px var(--color-secondary-glow);
+  }
+  .text-glow-accent {
+    text-shadow: 0 0 20px rgba(0, 230, 118, 0.5), 0 0 40px rgba(0, 230, 118, 0.3);
+  }
+
+  .box-glow-primary {
+    box-shadow: 0 0 30px var(--color-primary-glow);
+  }
+  .box-glow-secondary {
+    box-shadow: 0 0 30px var(--color-secondary-glow);
+  }
+
+  /* Mark interactive elements for the TargetCursor */
+  .cursor-target {
+    cursor: none;
+  }
+}
